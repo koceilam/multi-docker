@@ -14,12 +14,9 @@ after_success:
   - docker build -t kdevelop/multi-server ./server
   - docker build -t kdevelop/multi-worker ./worker
 # Log into the ducker CLI
-  - echo $DOCKER_PASSWORD
-  - echo $DOCKER_ID"
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --passowrd-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # TAKE THOSE IMAGES aND PUSH THEM TO DOCKER HUB
   - docker push kdevelop/multi-client
   - docker push kdevelop/multi-nginx
   - docker push kdevelop/multi-server
   - docker push kdevelop/multi-worker
-  - ssh-agent -k
