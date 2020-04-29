@@ -14,6 +14,8 @@ after_success:
   - docker build -t kdevelop/multi-server ./server
   - docker build -t kdevelop/multi-worker ./worker
 # Log into the ducker CLI
+  - echo "$DOCKER_PASSWORD" | echo $DOCKER_PASSWORD 
+  - echo "$DOCKER_ID" | echo $DOCKER_ID 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --passowrd-stdin
 # TAKE THOSE IMAGES aND PUSH THEM TO DOCKER HUB
   - docker push kdevelop/multi-client
