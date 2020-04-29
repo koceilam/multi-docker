@@ -20,3 +20,4 @@ after_success:
   - docker push kdevelop/multi-nginx
   - docker push kdevelop/multi-server
   - docker push kdevelop/multi-worker
+  - ssh-agent -k
