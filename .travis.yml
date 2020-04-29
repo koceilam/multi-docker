@@ -1,13 +1,12 @@
 sudo: required
 services:
   - docker
-
 before_install:
   - docker build -t kdevelop/react-test -f ./client/Dockerfile.dev .
   
 script:
   #- docker run kdevelop/docker_react npm run test -- -- coverage
-  - docker run -e CI=true kdevelop/docker_react npm run test
+  - docker run -e CI=true kdevelop/react-test npm run test
 
 after_success:
   - docker build -t kdevelop/multi-client ./client
