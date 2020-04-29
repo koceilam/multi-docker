@@ -1,11 +1,11 @@
 FROM node:alpine as builder
 # Install some dependecies
- WORKDIR '/app'
+WORKDIR "/app"
 #copy just the package.json  and run npm instal in case there are changes
- COPY package*.json ./  
- RUN npm install
+COPY package.json ./  
+RUN npm install
 
- COPY . .
+COPY . .
 
  # Default  command to run
 RUN npm run build
